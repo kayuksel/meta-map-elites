@@ -1,4 +1,4 @@
-# Meta-Learning Map-Elites Mutations (vs Nevergrad NGOpt4)
+# Meta-Learning Map-Elites Mutations (vs Nevergrad)
 
 Running Meta Map Elites 11 times on Schwefel-30 ...  
 The median score of Meta Map Elites: **1.4462890625**
