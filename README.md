@@ -9,7 +9,7 @@ by learning the mutation operator of map-elites via a convolutional neural netwo
 Experimental results shown its effectiveness in first-order non-convex optimization.  
 The convergence speed is remarkable versus SotA black-box optimization methods.
 
-# Comparison with Nevergrad NGOpt
+# Comparison with Nevergrad NGOpt4
 
 Running Meta Map Elites 11 times on Schwefel-30 ...  
 The median score of Meta Map Elites: **1.4462890625**
