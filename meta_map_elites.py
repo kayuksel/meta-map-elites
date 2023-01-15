@@ -29,13 +29,11 @@ class AGC(torch.optim.Optimizer):
         defaults = dict(clipping=clipping, eps=eps)
         defaults = {**defaults, **optim.defaults}
         super(AGC, self).__init__(params, defaults)
-
     @torch.no_grad()
     def step(self, closure=None):
         loss = None
         if closure is not None:
             with torch.enable_grad(): loss = closure()
-
         for group in self.param_groups:
             for p in group['params']:
                 param_norm = torch.max(unitwise_norm(
@@ -45,7 +43,6 @@ class AGC(torch.optim.Optimizer):
                 trigger = grad_norm > max_norm
                 clipped = p.grad * (max_norm / torch.max(grad_norm, torch.tensor(1e-6).cuda()))
                 p.grad.data.copy_(torch.where(trigger, clipped, p.grad))
-    
         self.optim.step(closure)
 
 class se_layer(nn.Module):
