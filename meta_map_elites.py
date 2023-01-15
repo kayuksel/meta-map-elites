@@ -119,7 +119,6 @@ for epoch in range((args.trial // args.batch)+1):
     opt.step()
 
     with torch.no_grad():
-
         if old_rewards is None: old_rewards = rewards
 
         cdist = torch.cdist(new_x, new_x)
@@ -134,7 +133,5 @@ for epoch in range((args.trial // args.batch)+1):
         min_reward = old_rewards.min()
 
         if best_reward is None: best_reward = min_reward
-
-        if min_reward >= best_reward: continue
-        best_reward = min_reward
+        if min_reward < best_reward: best_reward = min_reward
 print(best_reward.item())
