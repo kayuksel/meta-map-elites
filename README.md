@@ -1,5 +1,8 @@
 # Meta-Learning Map-Elites Mutations
 
+Quality-Diversity optimization is a global optimization method that aims to find a   
+diverse set of high-performing solutions to a given problem, rather than just one.
+
 In this work, a meta-learning method for quality-diversity optimization is proposed  
 by learning the mutation operator of map-elites via a convolutional neural network.  
 
