@@ -35,4 +35,4 @@ for i in range(11):
 
 median = numpy.median(numpy.array(results))
 
-print("The median loss of Nevergrad NGOp4:", median)
+print("The median loss of Nevergrad NGOpt4:", median)
