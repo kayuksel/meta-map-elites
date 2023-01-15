@@ -132,6 +132,6 @@ for epoch in range((args.trial // args.batch)+1):
         old_rewards[ind] = rewards[ind]
         min_reward = old_rewards.min()
 
-        if best_reward is None: best_reward = min_reward
-        if min_reward < best_reward: best_reward = min_reward
+        if best_reward is None or min_reward < best_reward: best_reward = min_reward
+        
 print(best_reward.item())
