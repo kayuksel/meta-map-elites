@@ -1,4 +1,4 @@
-# Meta-Learning Map-Elites Mutations via Convolutional Neural Networks
+# Meta-Learning Map-Elites Mutations (via CNN)
 
 Running Meta Map Elites 11 times on Schwefel-30 ...  
 The median score of Meta Map Elites: **1.4462890625**
