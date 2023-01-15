@@ -1,5 +1,8 @@
 # Meta-Learning Map-Elites Mutations
 
+In this work, CNNs are used to learn mutations in
+quality diversity optimization (via map-elites).
+
 # Comparison with Nevergrad NGOpt
 
 Running Meta Map Elites 11 times on Schwefel-30 ...  
