@@ -105,13 +105,10 @@ class CNN1d(nn.Module):
         return x.tanh().squeeze(1)
 
 model = CNN1d(bias = False).cuda()
-
 opt = torch.optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=1e-3)
 
 best_reward = None
-
 old_rewards = None
-
 x = torch.randn(args.batch, args.funcd).tanh().cuda()
 
 for epoch in range((args.trial // args.batch)+1):
