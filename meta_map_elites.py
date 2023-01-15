@@ -1,4 +1,4 @@
-import torch, math, random
+import torch, math, random, pdb
 import torch.nn as nn
 from argparse import ArgumentParser
 parser = ArgumentParser(description='Input parameters for Meta-Learning MAP Elites with CNN')
@@ -18,32 +18,6 @@ torch.backends.cudnn.benchmark = False
 def schwefel(x):
     x = x * 500
     return 418.9829 * x.shape[1] - (x * x.abs().sqrt().sin()).sum(dim=1)
-
-def unitwise_norm(x):
-    dim = [1, 2, 3] if x.ndim == 4 else 0
-    return torch.sum(x**2, dim=dim, keepdim= x.ndim > 1) ** 0.5
-
-class AGC(torch.optim.Optimizer):
-    def __init__(self, params, optim: torch.optim.Optimizer, clipping = 1e-2, eps = 1e-3):
-        self.optim = optim
-        defaults = dict(clipping=clipping, eps=eps)
-        defaults = {**defaults, **optim.defaults}
-        super(AGC, self).__init__(params, defaults)
-    @torch.no_grad()
-    def step(self, closure=None):
-        loss = None
-        if closure is not None:
-            with torch.enable_grad(): loss = closure()
-        for group in self.param_groups:
-            for p in group['params']:
-                param_norm = torch.max(unitwise_norm(
-                    p), torch.tensor(group['eps']).to(p.device))
-                grad_norm = unitwise_norm(p.grad)
-                max_norm = param_norm * group['clipping']
-                trigger = grad_norm > max_norm
-                clipped = p.grad * (max_norm / torch.max(grad_norm, torch.tensor(1e-6).cuda()))
-                p.grad.data.copy_(torch.where(trigger, clipped, p.grad))
-        self.optim.step(closure)
 
 class se_layer(nn.Module):
     def __init__(self, channels = 512, reduction = 32):
@@ -115,7 +89,7 @@ for epoch in range((args.trial // args.batch)+1):
     rewards = schwefel(new_x)
     actor_loss = rewards.mean()
     actor_loss.backward()
-    #nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+    nn.utils.clip_grad_norm_(model.parameters(), 1.0)
     opt.step()
 
     with torch.no_grad():
@@ -133,5 +107,5 @@ for epoch in range((args.trial // args.batch)+1):
         min_reward = old_rewards.min()
 
         if best_reward is None or min_reward < best_reward: best_reward = min_reward
-        
+
 print(best_reward.item())
