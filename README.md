@@ -18,4 +18,4 @@ Running Nevergrad NGOpt4 11 times on Schwefel-30 ...
 The median score of Nevergrad NGOp4: 889.81640625
 
 Run **compare_opts.py** to reproduce the above results.  
-P.S. The maximum amount of function evaluations: 10K.
+P.S. The maximum amount of function evaluations is 10K.
