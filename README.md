@@ -1,7 +1,7 @@
 # Meta-Learning Map-Elites Mutations
 
-In this work, CNNs are used to learn mutations in
-quality diversity optimization (via map-elites).
+In this work, a meta-learning method for quality-diversity optimization is proposed  
+by learning the mutation operator of map-elites via a convolutional neural network.
 
 # Comparison with Nevergrad NGOpt
 
