@@ -1,7 +1,7 @@
 import torch, math, random, pdb
 import torch.nn as nn
 from argparse import ArgumentParser
-parser = ArgumentParser(description='Input parameters for Meta-Learning MAP Elites with ODE')
+parser = ArgumentParser(description='Input parameters for Meta-Learning MAP Elites with CNN')
 parser.add_argument('--funcd', default=30, type=int, help='Size of Schwefel Function Dimensions')
 parser.add_argument('--trial', default=10000, type=int, help='Number of Total Iterations for Solver')
 parser.add_argument('--batch', default=64, type=int, help='Number of Evaluations in an Iteration')
