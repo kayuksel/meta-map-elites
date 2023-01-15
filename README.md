@@ -4,7 +4,7 @@ In this work, a meta-learning method for quality-diversity optimization is propo
 by learning the mutation operator of map-elites via a convolutional neural network.  
 
 Experimental results shown its effectiveness in first-order non-convex optimization.  
-The speed of convergence is remarkable versus SotA black-box optimization methods.
+The convergence speed is remarkable against SotA black-box optimization methods.
 
 # Comparison with Nevergrad NGOpt
 
