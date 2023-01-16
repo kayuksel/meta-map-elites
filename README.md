@@ -22,5 +22,5 @@ P.S. The maximum amount of function evaluations is 10K.
 
 # Large-Scale Optimization Experiments
 Check **meta_map_elites_10k.py** to try with 1000-dims.  
-If you want to optimize 100K dims, check my other work:  
+If you want to optimize 100K dims, check my other repo:  
 https://github.com/kayuksel/genmeta-vs-nevergrad
